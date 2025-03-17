@@ -38,5 +38,11 @@
                 "./dist/contentscript.js"
             ]
         }
-    ]
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "{3bf4fa8e-003f-4351-8c6e-1689ecae434c}",
+            "strict_min_version": "128.0"
+        }
+    }
 }
