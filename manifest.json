@@ -1,8 +1,7 @@
 {
     "manifest_version": 3,
     "name": "__MSG_EXT_NAME__",
-    "version":"0.6.0",
-
+    "version": "0.7.0",
     "action": {
         "default_popup": "popup/popup.html"
     },
@@ -14,7 +13,6 @@
         "48": "icons/icon_48w.png",
         "128": "icons/icon_128w.png"
     },
-
     "permissions": [
         "storage",
         "webRequest"
@@ -23,7 +21,7 @@
         "*://*.twitch.tv/*",
         "*://usher.ttvnw.net/*"
     ],
-    "background":{
+    "background": {
         "service_worker": "./dist/background.js"
     },
     "content_scripts": [
@@ -31,8 +29,12 @@
             "matches": [
                 "*://*.twitch.tv/*"
             ],
-            "css": ["./css/style.css"],
-            "js": ["./dist/contentscript.js"]
+            "css": [
+                "./css/style.css"
+            ],
+            "js": [
+                "./dist/contentscript.js"
+            ]
         }
     ]
 }

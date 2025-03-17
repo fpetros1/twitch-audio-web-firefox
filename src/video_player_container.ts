@@ -1,3 +1,5 @@
+import browser from 'webextension-polyfill';
+
 import log from 'loglevel';
 import { tryFetchingPlaylist } from './fetch';
 import { getChannelFromWebUrl, parseAudioOnlyUrl } from './url';
@@ -328,11 +330,11 @@ class ControlGroup {
 
         let text = 'Radio mode';
         if (newState === PlayingState.DISABLED) {
-            text = chrome.i18n.getMessage('RADIO_MODE_DISABLED');
+            text = browser.i18n.getMessage('RADIO_MODE_DISABLED');
         } else if (newState === PlayingState.PAUSED) {
-            text = chrome.i18n.getMessage('RADIO_MODE_START');
+            text = browser.i18n.getMessage('RADIO_MODE_START');
         } else if (newState === PlayingState.PLAYING) {
-            text = chrome.i18n.getMessage('RADIO_MODE_END');
+            text = browser.i18n.getMessage('RADIO_MODE_END');
         } else {
             log.debug('updateTooltipText for state ' + newState);
         }
@@ -578,7 +580,7 @@ class VideoPlayer {
                 this.playVideo();
             }
         };
-        chrome.storage.local.get(['autoplay'], onPause.bind(this));
+        browser.storage.local.get(['autoplay']).then(onPause.bind(this));
     }
 
     playVideo() {
