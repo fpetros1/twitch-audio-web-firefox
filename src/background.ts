@@ -1,6 +1,8 @@
-import { setTwitchClientId, setTwitchOauthToken } from './storageManager';
+import browser from 'webextension-polyfill';
 
-chrome.webRequest.onSendHeaders.addListener(
+import { setTwitchClientId, setTwitchOauthToken } from './storageManager';
+    
+browser.webRequest.onSendHeaders.addListener(
     async function (details) {
         let oauthTokenFound = false;
         const headers = details.requestHeaders || [];
@@ -25,6 +27,7 @@ chrome.webRequest.onSendHeaders.addListener(
             await setTwitchOauthToken(null);
         }
     },
-    { urls: ['*://gql.twitch.tv/gql/*'] },
+    { urls: ['*://gql.twitch.tv/gql*'] },
     ['requestHeaders']
 );
+

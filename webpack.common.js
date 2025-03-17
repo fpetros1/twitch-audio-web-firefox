@@ -1,35 +1,35 @@
-const path = require('path');
+import { resolve as _resolve } from 'path';
 
-module.exports = {
-  entry: {
+export const entry = {
     'background': './src/background.ts',
     'contentscript': './src/contentscript.ts'
-  },
-  output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, 'dist'),
-  },
-  resolve: {
-    extensions: [ '.tsx', '.ts', '.js'],
-  },
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: [
-            'style-loader',
-            'css-loader',
-        ]
-      },
-      {
-        test: /\.(png|svg|jpg|gif)/,
-        use: 'file-loader'
-      },
-      {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-      }
-    ]
-  }
 };
+export const output = {
+    filename: '[name].js',
+    path: _resolve(import.meta.dirname, 'dist'),
+};
+export const resolve = {
+    extensions: ['.tsx', '.ts', '.js'],
+};
+
+export const module = {
+    rules: [
+        {
+            test: /\.css$/,
+            use: [
+                'style-loader',
+                'css-loader',
+            ]
+        },
+        {
+            test: /\.(png|svg|jpg|gif)/,
+            use: 'file-loader'
+        },
+        {
+            test: /\.tsx?$/,
+            use: 'ts-loader',
+            exclude: /node_modules/,
+        }
+    ]
+};
+

@@ -1,14 +1,14 @@
-const path = require('path');
-const { merge } = require('webpack-merge');
-const CopyPlugin = require("copy-webpack-plugin");
+import { resolve as _resolve } from 'path';
+import { merge } from 'webpack-merge';
+import CopyPlugin from "copy-webpack-plugin";
 
-const common = require('./webpack.common.js');
+import { entry, output, resolve, module } from './webpack.common.js';
 
-module.exports = merge(common, {
+export default merge({ entry, output, resolve, module }, {
   mode: 'production',
   output: {
     filename: 'dist/[name].js',
-    path: path.resolve(__dirname, 'release'),
+    path: _resolve(import.meta.dirname, 'release'),
   },
   plugins: [
     new CopyPlugin({

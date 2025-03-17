@@ -10,7 +10,6 @@ if (process.env.NODE_ENV === 'production') {
 else {
   log.setDefaultLevel(log.levels.DEBUG);
 }
-
-
+            
 const container = new VideoPlayerContainer();
 container.run();
