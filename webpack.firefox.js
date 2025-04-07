@@ -8,7 +8,7 @@ export default merge({ entry, output, resolve, module  }, {
   mode: 'production',
   devtool: 'inline-source-map',
   optimization: {
-    minimize: false,
+    minimize: true,
   },
   output: {
     filename: 'dist/[name].js',
