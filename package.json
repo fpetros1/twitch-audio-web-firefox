@@ -1,30 +1,28 @@
 {
     "name": "twitch_audio",
-    "version": "0.7.0",
-    "description": "This extension for Google Chrome and Firefox lets users play the stream in radio mode.",
+    "version": "0.7.1",
+    "description": "This extension for Firefox lets users play the stream in radio mode.",
     "private": true,
     "scripts": {
         "test": "jest",
         "build": "webpack --config webpack.dev.js",
-        "build:prod": "webpack --config webpack.prod.js",
-        "build:firefox:prod": "webpack --config webpack.firefox.js",
+        "build:prod": "webpack --config webpack.firefox.js",
         "format:check": "prettier --check src/",
         "format:write": "prettier --write src/"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/c-rainbow/twitch-audio-web.git"
+        "url": "git+https://github.com/fpetros1/twitch-audio-web-firefox.git"
     },
     "keywords": [],
     "author": "",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/c-rainbow/twitch-audio-web/issues"
+        "url": "https://github.com/fpetros1/twitch-audio-web-firefox/issues"
     },
     "type": "module",
-    "homepage": "https://github.com/c-rainbow/twitch-audio-web#readme",
+    "homepage": "https://github.com/fpetros1/twitch-audio-web-firefox#readme",
     "devDependencies": {
-        "@types/chrome": "^0.0.237",
         "@types/firefox-webext-browser": "^120.0.4",
         "@types/jest": "^29.5.2",
         "@types/node": "^18",

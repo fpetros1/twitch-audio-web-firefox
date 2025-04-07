@@ -15,10 +15,12 @@ export async function setTwitchClientId(twitchClientId: string) {
 }
 
 export async function getTwitchOauthToken(): Promise<string | null> {
-  const result = await browser.storage.local.get([TWITCH_OAUTH_TOKEN_KEY]);
-  return (result[TWITCH_OAUTH_TOKEN_KEY] as string) || null;
+    const result = await browser.storage.local.get([TWITCH_OAUTH_TOKEN_KEY]);
+    return (result[TWITCH_OAUTH_TOKEN_KEY] as string) || null;
 }
 
 export async function setTwitchOauthToken(twitchOauthToken: string | null) {
-  await browser.storage.local.set({ [TWITCH_OAUTH_TOKEN_KEY]: twitchOauthToken });
+    await browser.storage.local.set({
+        [TWITCH_OAUTH_TOKEN_KEY]: twitchOauthToken,
+    });
 }

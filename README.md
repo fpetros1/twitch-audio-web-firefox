@@ -1,9 +1,14 @@
-# Twitch Radio Mode Chrome Extension
+# Twitch Radio Mode Firefox Extension
 
-This extension for Google Chrome and Firefox, it lets the users play the stream in radio mode.
+This extension for Firefox, it lets the users play the stream in radio mode(only audio).
 
-Korean version of README can be found [here](https://github.com/c-rainbow/twitch-audio-web/blob/master/readme/README.ko.md).
-한국어 설명서는 [여기](https://github.com/c-rainbow/twitch-audio-web/blob/master/readme/README.ko.md)로
+### [Chrome Version](https://github.com/c-rainbow/twitch-audio-web)
+
+## Install
+
+<p align="left">
+<a href="https://addons.mozilla.org/en-US/firefox/addon/twitch-radio-mode"><img src="https://user-images.githubusercontent.com/585534/107280546-7b9b2a00-6a26-11eb-8f9f-f95932f4bfec.png" alt="Get Twitch Radio Mode for Firefox"></a>
+</p>
 
 ## Use
 
@@ -19,11 +24,6 @@ The volume can be adjusted in the same way as the video, using the same volume s
 
 If you want to pause, just click the radio icon one more time. The audio will automatically stop if the video is played.
 
-
-## Install
-
-WIP
-
 ## Development
 
 The extension is created with TypeScript and uses Webpack to build the code.
@@ -33,34 +33,15 @@ Please install webpack and other dependencies for the project.
 ```
 yarn
 ```
-### Chrome
 
-#### Development
+#### Development Build
 ```
 yarn build
 ```
 
-#### Production
+#### Production Build
 ```
 yarn build:prod
-```
-
-#### Load Extension
-
-- In Google Chrome, go to chrome://extensions
-- On the top right, enable "Developer Mode"
-- Click "Load Unpacked" and select <source_directory>/release.
-
-### Firefox
-
-#### Development
-```
-WIP
-```
-
-#### Production
-```
-yarn build:firefox:prod
 ```
 
 #### Load Extension

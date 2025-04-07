@@ -1,5 +1,3 @@
-
-
 i18nMap = {
     "extension-title-text": "POPUP_EXT_NAME",
     "config-name-autoplay": "AUTOPLAY_VIDEO_ON_RADIO_END",
@@ -11,14 +9,14 @@ function i18nUpdate() {
     for(let elemId in i18nMap) {
         const key = i18nMap[elemId];
         const elem = document.getElementById(elemId);
-        elem.textContent = chrome.i18n.getMessage(key);
+        elem.textContent = browser.i18n.getMessage(key);
     }
 }
 
 
 function onConfigChanged() {
     let autoplay = Boolean(this.checked);
-    chrome.storage.local.set({"autoplay": autoplay}, function() {
+    browser.storage.local.set({"autoplay": autoplay}, function() {
         console.log("autoplay set");
     });
 }

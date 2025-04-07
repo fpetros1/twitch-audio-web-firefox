@@ -523,11 +523,7 @@ class VideoPlayer {
         const audioPlayCallback = function () {
             log.info('Play started');
             this.controlGroup?.updateForPlay();
-            log.debug(
-                'Time to start playing:',
-                Date.now() - startTime,
-                'ms'
-            );
+            log.debug('Time to start playing:', Date.now() - startTime, 'ms');
         };
         this.controlGroup.radioButton.setAttribute(
             radioModeStateAttr,

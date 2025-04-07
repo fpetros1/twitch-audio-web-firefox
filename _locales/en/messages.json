@@ -4,7 +4,7 @@
         "description": "Extension name"
     },
     "EXT_DESCRIPTION": {
-        "message": "Enables radio mode in Chrome web browser",
+        "message": "Enables radio mode in Firefox web browser",
         "description": "Extension description"
     },
     "RADIO_MODE_START": {
@@ -24,7 +24,7 @@
         "description": "Config name in popup"
     },
     "POPUP_EXT_NAME": {
-        "message": "Twitch Radio Mode v0.6.0",
+        "message": "Twitch Radio Mode v0.7.1",
         "description": "Title of extension in popup window"
     },
     "EXT_CONFIG_HEADER": {

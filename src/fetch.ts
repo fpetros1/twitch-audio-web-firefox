@@ -39,9 +39,7 @@ export async function fetchJson(url: string) {
     try {
         const response = await fetch(url);
         if (!response.ok) {
-            log.debug(
-                `fetchJson response is not ok with: ${response.status}`
-            );
+            log.debug(`fetchJson response is not ok with: ${response.status}`);
             return null;
         }
         const respJson = await response.json();
@@ -53,18 +51,18 @@ export async function fetchJson(url: string) {
 }
 
 async function getGqlHeaders() {
-  const twitchClientId = await getTwitchClientId();
-  const twitchOauthToken = await getTwitchOauthToken();
+    const twitchClientId = await getTwitchClientId();
+    const twitchOauthToken = await getTwitchOauthToken();
 
-  const basicHeader = {
-    'Client-ID': twitchClientId,
-    'Content-Type': 'text/plain; charset=UTF-8',
-  };
+    const basicHeader = {
+        'Client-ID': twitchClientId,
+        'Content-Type': 'text/plain; charset=UTF-8',
+    };
 
-  if (twitchOauthToken) {
-    Object.assign(basicHeader, { 'Authorization': twitchOauthToken });
-  }
-  return basicHeader;
+    if (twitchOauthToken) {
+        Object.assign(basicHeader, { Authorization: twitchOauthToken });
+    }
+    return basicHeader;
 }
 
 // Run GQL query
