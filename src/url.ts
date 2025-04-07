@@ -1,6 +1,5 @@
 import log from 'loglevel';
 
-
 // Non-exhuastive list of non-channel routes in twitch.tv
 const nonChannels: string[] = [
     '',
