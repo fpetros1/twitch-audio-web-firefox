@@ -105,4 +105,5 @@ typings/
 # Release files 
 release/
 release-firefox/
+dev-firefox/
 dist/
