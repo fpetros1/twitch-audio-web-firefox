@@ -420,33 +420,40 @@ class VideoPlayer {
     }
 
     tryObservingVideoElem() {
-        if (!this.videoElemObserver) {
-            const callback: MutationCallback = function (
-                mutations: MutationRecord[]
-            ) {
-                for (let mutation of mutations) {
-                    if (mutation.attributeName == 'src') {
-                        this.updateStatus();
-                    }
-                }
-            };
-            this.videoElemObserver = new MutationObserver(callback.bind(this));
-        }
-
         const videoElem = this.playerElem.getElementsByTagName('video')?.[0];
+        
         if (!videoElem) {
-            this.videoElemObserver?.disconnect();
             this.videoElem = null;
             return;
         }
 
-        if (isProcessed(videoElem)) {
-            return;
-        }
-        this.videoElem = videoElem;
-        markProcessed(this.videoElem);
+        const setupVideoElemObserver = () => {
+            videoElem.removeEventListener('canplay', setupVideoElemObserver);
 
-        this.videoElemObserver.observe(this.videoElem, attrObserverConfig);
+            if (!this.videoElemObserver) {
+                const callback: MutationCallback = function (
+                    mutations: MutationRecord[]
+                ) {
+                    for (let mutation of mutations) {
+                        if (mutation.attributeName == 'src') {
+                            this.updateStatus();
+                        }
+                    }
+                };
+                this.videoElemObserver = new MutationObserver(callback.bind(this));
+            }
+
+
+            if (isProcessed(videoElem)) {
+                return;
+            }
+            this.videoElem = videoElem;
+            markProcessed(this.videoElem);
+
+            this.videoElemObserver.observe(this.videoElem, attrObserverConfig);
+        }
+
+        videoElem.addEventListener('canplay', setupVideoElemObserver);
     }
 
     updateStatus() {

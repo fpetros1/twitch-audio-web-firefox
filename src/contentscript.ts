@@ -7,13 +7,5 @@ if (process.env.NODE_ENV === 'production') {
     log.setDefaultLevel(log.levels.DEBUG);
 }
 
-const videoElement = document.querySelector('.video-player video');
-
-const runExtension = (event: Event) => {
-    event.stopPropagation();
-    new VideoPlayerContainer().run();
-    videoElement.removeEventListener('canplay', runExtension);
-};
-
-videoElement.addEventListener('canplay', runExtension);
+new VideoPlayerContainer().run();
 
