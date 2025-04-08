@@ -1,6 +1,7 @@
 import { resolve as _resolve } from 'path';
 import { merge } from 'webpack-merge';
 import CopyPlugin from "copy-webpack-plugin";
+import { CleanWebpackPlugin } from "clean-webpack-plugin";
 
 import { entry, output, resolve, module } from './webpack.common.js';
 
@@ -14,6 +15,7 @@ export default merge({ entry, output, resolve, module  }, {
     path: _resolve(import.meta.dirname, 'release-firefox'),
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new CopyPlugin({
       patterns: [
         { from: "manifest.firefox.json", to: "manifest.json" },
