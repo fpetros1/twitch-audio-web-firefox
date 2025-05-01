@@ -1,6 +1,6 @@
 {
     "name": "twitch_audio",
-    "version": "0.7.3",
+    "version": "0.7.4",
     "description": "This extension for Firefox lets users play the stream in radio mode.",
     "private": true,
     "scripts": {
