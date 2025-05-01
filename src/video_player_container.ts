@@ -510,7 +510,7 @@ class VideoPlayer {
             // backBufferLength: 1,
             // maxLoadingDelay: 2,
             // maxMaxBufferLength: 5,
-            liveSyncDuration: 3,
+            liveSyncDurationCount: 2,
             enableWorker: true,
             lowLatencyMode: true,
             liveDurationInfinity: true, // true for live stream
