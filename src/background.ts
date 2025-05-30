@@ -21,7 +21,8 @@ browser.webRequest.onSendHeaders.addListener(
         if (details.requestHeaders) {
             for (const header of details.requestHeaders) {
                 const headerName: string = header.name.toLocaleLowerCase();
-                headerActions[headerName] && headerActions[headerName](header.value);
+                headerActions[headerName] &&
+                    headerActions[headerName](header.value);
             }
         }
     },

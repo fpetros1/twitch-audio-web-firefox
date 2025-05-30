@@ -1,6 +1,6 @@
 {
     "name": "twitch_audio",
-    "version": "0.7.4",
+    "version": "0.7.5",
     "description": "This extension for Firefox lets users play the stream in radio mode.",
     "private": true,
     "scripts": {
@@ -23,24 +23,24 @@
     "homepage": "https://github.com/fpetros1/twitch-audio-web-firefox#readme",
     "devDependencies": {
         "@types/firefox-webext-browser": "^120.0.4",
-        "@types/node": "^18",
+        "@types/node": "^22.0.3",
         "@types/webextension-polyfill": "^0.12.3",
         "clean-webpack-plugin": "^4.0.0",
         "copy-webpack-plugin": "^11.0.0",
-        "css-loader": "^6.8.1",
+        "css-loader": "^6.11.0",
         "jsdom": "^22.1.0",
         "prettier": "^2.8.8",
-        "style-loader": "^3.3.3",
-        "ts-loader": "^9.4.3",
-        "typescript": "^5.0.4",
+        "style-loader": "^3.3.4",
+        "ts-loader": "^9.5.2",
+        "typescript": "^5.8.3",
         "webextension-polyfill": "^0.12.0",
-        "webpack": "^5.85.0",
-        "webpack-cli": "^5.1.1",
-        "webpack-merge": "^5.9.0"
+        "webpack": "^5.99.8",
+        "webpack-cli": "^5.1.4",
+        "webpack-merge": "^5.10.0"
     },
     "dependencies": {
-        "hls.js": "^1.4.4",
-        "loglevel": "^1.8.1"
+        "hls.js": "^1.6.2",
+        "loglevel": "^1.9.2"
     },
     "main": "webpack.config.js"
 }

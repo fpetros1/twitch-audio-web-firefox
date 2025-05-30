@@ -421,7 +421,7 @@ class VideoPlayer {
 
     tryObservingVideoElem() {
         const videoElem = this.playerElem.getElementsByTagName('video')?.[0];
-        
+
         if (!videoElem) {
             this.videoElem = null;
             return;
@@ -440,9 +440,10 @@ class VideoPlayer {
                         }
                     }
                 };
-                this.videoElemObserver = new MutationObserver(callback.bind(this));
+                this.videoElemObserver = new MutationObserver(
+                    callback.bind(this)
+                );
             }
-
 
             if (isProcessed(videoElem)) {
                 return;
@@ -451,7 +452,7 @@ class VideoPlayer {
             markProcessed(this.videoElem);
 
             this.videoElemObserver.observe(this.videoElem, attrObserverConfig);
-        }
+        };
 
         videoElem.addEventListener('canplay', setupVideoElemObserver);
     }
@@ -515,33 +516,38 @@ class VideoPlayer {
             lowLatencyMode: true,
             liveDurationInfinity: true, // true for live stream
         });
-        //this.hls.loadSource(mediaUrl);
+
+        this.hls.loadSource(mediaUrl);
         this.hls.attachMedia(this.audioElem);
+
         this.hls.on(
             Hls.Events.MEDIA_ATTACHED,
             function () {
                 log.debug('Audio and hls.js are now bound together !');
                 this.hls.loadSource(mediaUrl);
+
+                this.controlGroup.radioButton.setAttribute(
+                    radioModeStateAttr,
+                    'loading'
+                );
+                this.audioElem.play().then(
+                    function () {
+                        log.info('Play started');
+                        this.controlGroup?.updateForPlay();
+                        log.debug(
+                            'Time to start playing:',
+                            Date.now() - startTime,
+                            'ms'
+                        );
+                    }.bind(this)
+                );
+                this.playingState = PlayingState.PLAYING;
+
+                // Stop the video if playing
+                this.pauseVideo();
+                //this.controlGroup?.updateForPlay();
             }.bind(this)
         );
-        // TODO: Is this safe to play right away after attaching the media?
-        // The main example at hls.js website tells to use MANIFEST_PARSED event,
-        // but for some reason the event is not triggered with typescript+webpack.
-        const audioPlayCallback = function () {
-            log.info('Play started');
-            this.controlGroup?.updateForPlay();
-            log.debug('Time to start playing:', Date.now() - startTime, 'ms');
-        };
-        this.controlGroup.radioButton.setAttribute(
-            radioModeStateAttr,
-            'loading'
-        );
-        this.audioElem.play().then(audioPlayCallback.bind(this));
-        this.playingState = PlayingState.PLAYING;
-
-        // Stop the video if playing
-        this.pauseVideo();
-        //this.controlGroup?.updateForPlay();
     }
 
     pauseFromDisabled() {
