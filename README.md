@@ -33,17 +33,17 @@ The extension is created with TypeScript and uses Webpack to build the code.
 Please install webpack and other dependencies for the project.
 
 ```
-yarn
+pnpm
 ```
 
 #### Development Build
 ```
-yarn build
+pnpm build
 ```
 
 #### Production Build
 ```
-yarn build:prod
+pnpm build:prod
 ```
 
 #### Load Extension
