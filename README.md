@@ -1,3 +1,5 @@
+### This is a mirror. Check [main repository](https://codeberg.org/fpetros/twitch-audio-web-firefox) on Codeberg
+
 # Twitch Radio Mode Firefox Extension
 
 This extension for Firefox, it lets the users play the stream in radio mode(only audio).
